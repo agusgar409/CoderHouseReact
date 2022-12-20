@@ -2,7 +2,9 @@ import React from 'react'
 
 const CartWidget = () => {
   return (
-    <div>CartWidget</div>
+    <>
+      {/* <FontAwesomeIcon icon="fa-regular fa-cart-shopping" /> */}
+    </>
   )
 }
 
