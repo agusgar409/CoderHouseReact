@@ -1,3 +1,10 @@
 .circleNotification{
+
+    background: red;
+    border-radius: 100%;
     
+}
+
+.centerNumberCart{
+    margin-right: 14px;
 }

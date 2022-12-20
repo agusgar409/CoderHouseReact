@@ -6,7 +6,7 @@ const NavBar = () => {
     return (
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <div className="collapse navbar-collapse justify-space-around" id="navbarNavDropdown">
+          <div className="collapse navbar-collapse justify-content-around" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
 								<a className="nav-link active" aria-current="page" href="#home">NetMovie</a>
