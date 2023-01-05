@@ -1,11 +1,25 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import ShowItem from '../../components/showItem/ShowItem'
 
-const ItemListContainer = ({greeting}) => {
+
+
+
+const ItemListContainer = () => {
+
+  const [products, setProducts] = useState([])
+  
+  useEffect(() => {
+    
+    fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=> setProducts(json))
+  
+   
+  }, [])
+
   return (
     <div className='text-center'>
-      <h1>
-        {greeting}
-      </h1>
+      <ShowItem products={products}/>
     </div>
   )
 }
