@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import ShowItem from '../../components/showItem/ShowItem'
-
-
-
+import ShowItems from '../../components/showItems/ShowItems'
 
 const ItemListContainer = () => {
 
@@ -18,8 +15,9 @@ const ItemListContainer = () => {
   }, [])
 
   return (
-    <div className='text-center'>
-      <ShowItem products={products}/>
+    <div className='mt-5'>
+      <title><strong>Our Products</strong></title>
+      <ShowItems products={products}/>
     </div>
   )
 }
