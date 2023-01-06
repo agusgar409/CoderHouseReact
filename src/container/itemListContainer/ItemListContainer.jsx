@@ -12,16 +12,16 @@ const ItemListContainer = () => {
   useEffect(() => {
     
     fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(productJson=> {
-              if(categoryId){
-                const productsFilterByCategory = productJson.filter(product => product.category === categoryId);  
-                setProducts(productsFilterByCategory)
-              } else {
-                setProducts(productJson)
-              }
-              
-            })
+      .then(res=>res.json())
+      .then(productJson=> {
+        if(categoryId){
+          const productsFilterByCategory = productJson.filter(product => product.category === categoryId);  
+          setProducts(productsFilterByCategory)
+        } else {
+          setProducts(productJson)
+        }
+        
+      })
   }, [categoryId])
 
   return (
