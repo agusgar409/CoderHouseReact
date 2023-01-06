@@ -18,12 +18,14 @@ const ItemDetailContainer = () => {
   return (
     <div className='container center'>
       <div className='row ' >
-        <div className='col-4 align-self-center'>
+        <div className='col-6 align-self-center'>
           <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
         </div>
-        <div className='col-8'>
-          <div className='row'>
-            <title>{item.title}</title>
+        <div className='col-6'>
+          <div>
+            <h1>{item.title}</h1>
+          </div>
+          <div>
             <p>{item.price}</p>
           </div>
           
