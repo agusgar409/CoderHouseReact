@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CartWidget from '../cartWidget/CartWidget'
+import GetAllCategories from '../getAllCategories/GetAllCategories'
+
 
 const NavBar = () => {
 
@@ -19,9 +21,8 @@ const NavBar = () => {
                 <a class="nav-link dropdown-toggle" href='#category' type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categories
                 </a>
-                <ul class="dropdown-menu">
-                  <li><Link to={"/category"} class="dropdown-item" href="#action">Action</Link></li>
-                  <li><Link to={"/category"} class="dropdown-item" href="#another">Sport</Link></li>
+                <ul className="dropdown-menu">
+                  <GetAllCategories/>
                 </ul>
               </li>
 						</ul>
@@ -29,7 +30,6 @@ const NavBar = () => {
 							<CartWidget/>
 						</div>
 					</div>
-					
 				</div>
 			</nav>
     )
