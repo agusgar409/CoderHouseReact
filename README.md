@@ -39,8 +39,5 @@ Para que el proyecto se logre realizar de una manera esperada utilicé las sigui
 ⚡ React-bootstrap: navbar 
 
 # *GIF*:
-![Funcionamiento_React](https://user-images.githubusercontent.com/5633248/191972019-991f6ae2-3c84-4fbb-8b4f-70ef630b48ad.gif)
 
-
-
-⌨️ 😊
+![PreEntrega2-Garcia](https://user-images.githubusercontent.com/62307436/211097156-19008198-5e78-44be-9e74-2813c5caf97b.gif)
