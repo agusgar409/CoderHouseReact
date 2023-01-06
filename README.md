@@ -38,27 +38,6 @@ Para que el proyecto se logre realizar de una manera esperada utilicé las sigui
 
 ⚡ React-bootstrap: navbar 
 
-⚡ Sweetalert2: aviso email ingresado incorrecto
-
-⚡ React-Firebase: base de datos 
-
-## Firebase / Firestore
-
-- Colección: Items. Cada item tiene las siguientes características:
-
-|    Campo      |   Tipo        |   Valor       |
-| ------------- | ------------- | ------------- |
-|   name        |   String      |   Nombre      |
-|   category    |   String      |   Categoría   |
-|       img     |   String      |       img     |
-|       name    |   String      |      Nombre   |
-| description   |   String      | Descripcion   |
-|       price   |   number      |     Precio    |
-|       stock   |   number      |       stock   |
-
-## Dirección del proyecto
-https://after-34715.vercel.app/
-
 # *GIF*:
 ![Funcionamiento_React](https://user-images.githubusercontent.com/5633248/191972019-991f6ae2-3c84-4fbb-8b4f-70ef630b48ad.gif)
 
