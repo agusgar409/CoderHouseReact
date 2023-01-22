@@ -25,15 +25,29 @@ const ItemDetailContainer = () => {
           <div>
             <h1>{item.title}</h1>
           </div>
-          <div className='pt-5 row justify-content-center'>
-            <div className='col-lg-6'>
-              <h2>${item.price}</h2>
+          
+          <div className='pt-3'>
+            <h2>${item.price}</h2>
+          </div>
+          <div className='pt-3 row justify-content-between'>
+            <div className='col-lg-5'>
+              <div className='row'>
+                <div className='col-lg-4 align-self-center'>
+                  <button type="button" class="btn btn-outline-primary">-</button>
+                </div>
+                <div className='col-lg-4 align-self-center'>
+                  <input type="number" name="" id="" />
+                </div>
+                <div className='col-lg-4 align-self-center'>
+                  <button type="button" class="btn btn-outline-primary">+</button>
+                </div>
+              </div>
+              
             </div>
-            <div className='col-lg-6'>
-              <button>Add to cart</button>
+            <div className='col-lg-6 align-self-center'>
+              <button type="button" class="btn btn-outline-primary">Add to cart</button>
             </div>
           </div>
-          
 
         </div>
       </div>
