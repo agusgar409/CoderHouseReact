@@ -6,6 +6,7 @@ const ItemDetailContainer = () => {
 
   const {itemId} = useParams()
   const [item, setItem] = useState([])
+  const [valueCounter, setValueCounter] = useState(0);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products/'+itemId)
@@ -14,6 +15,16 @@ const ItemDetailContainer = () => {
   }, [itemId])
   
   console.log(item)
+
+  const sumValue = () =>{
+    setValueCounter(valueCounter + 1)
+  }
+
+  const discountValue = () => {
+    if(valueCounter > 0){
+      setValueCounter(valueCounter - 1);
+    }
+  }
 
   return (
     <>
@@ -41,14 +52,14 @@ const ItemDetailContainer = () => {
           <div className='pt-3 row justify-content-between'>
             <div className='col-lg-5'>
               <div className='row'>
-                <div className='col-lg-4 align-self-center'>
-                  <button type="button" class="btn btn-outline-primary">-</button>
+                <div className='col-lg-3 align-self-center'>
+                  <button onClick={discountValue} type="button" class="btn btn-outline-primary">-</button>
                 </div>
-                <div className='col-lg-4 align-self-center'>
-                  <input type="number" name="" id="" />
+                <div className='col-lg-6 align-self-center'>
+                  <input className='configuration' type="number" max={99} min={1} name="" id="" value={valueCounter} />
                 </div>
-                <div className='col-lg-4 align-self-center'>
-                  <button type="button" class="btn btn-outline-primary">+</button>
+                <div className='col-lg-3 align-self-center'>
+                  <button onClick={sumValue} type="button" class="btn btn-outline-primary">+</button>
                 </div>
               </div>
               
