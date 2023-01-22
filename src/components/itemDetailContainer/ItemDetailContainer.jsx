@@ -16,31 +16,41 @@ const ItemDetailContainer = () => {
   console.log(item)
 
   return (
-    <div className='container center'>
-      <div className='row ' >
-        <div className='col-lg-6 col-sm-12 align-self-center'>
-          <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
-        </div>
-        <div className='col-lg-6 col-sm-12'>
-          <div>
-            <h1>{item.title}</h1>
+    <>
+      {Object.keys(item).length === 0 ?
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border m-5" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
-          <div className='pt-5 row justify-content-center'>
-            <div className='col-lg-6'>
-              <h2>${item.price}</h2>
+        </div>
+          : 
+        <div className='container center'>
+          <div className='row ' >
+            <div className='col-lg-6 col-sm-12 align-self-center'>
+              <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
             </div>
-            <div className='col-lg-6'>
-              <button>Add to cart</button>
+            <div className='col-lg-6 col-sm-12'>
+              <div>
+                <h1>{item.title}</h1>
+              </div>
+              <div className='pt-5 row justify-content-center'>
+                <div className='col-lg-6'>
+                  <h2>${item.price}</h2>
+                </div>
+                <div className='col-lg-6'>
+                  <button>Add to cart</button>
+                </div>
+              </div>
             </div>
           </div>
-          
-
+          <div className='pt-5'>
+            <p>{item.description}</p>
+          </div>
         </div>
-      </div>
-      <div className='pt-5'>
-        <p>{item.description}</p>
-      </div>
-    </div>
+      }
+    </>
+    
+    
   )
 }
 
