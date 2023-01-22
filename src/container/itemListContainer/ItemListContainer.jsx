@@ -26,8 +26,15 @@ const ItemListContainer = () => {
 
   return (
     <div className='mt-5'>
-      <title><strong>Our Products</strong></title>
-      <ShowItems products={products}/>
+      {Object.keys(products).length === 0 ?
+        <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+          : 
+        <ShowItems products={products}/>
+      }
     </div>
   )
 }
