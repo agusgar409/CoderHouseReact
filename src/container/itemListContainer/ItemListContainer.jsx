@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router'
+import Loader from '../../components/loader/Loader';
 import ShowItems from '../../components/showItems/ShowItems'
 
 const ItemListContainer = () => {
@@ -27,11 +28,7 @@ const ItemListContainer = () => {
   return (
     <div className='mt-5'>
       {Object.keys(products).length === 0 ?
-        <div class="text-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <Loader/>
           : 
         <ShowItems products={products}/>
       }

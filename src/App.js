@@ -3,9 +3,9 @@ import NavBar from './components/navBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './container/itemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
+import ItemDetailContainer from './container/itemDetailContainer/ItemDetailContainer';
 
 function App() {
   
