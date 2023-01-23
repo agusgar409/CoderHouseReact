@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router'
 import Loader from '../../components/loader/Loader';
 import ShowItems from '../../components/showItems/ShowItems'
+import backgroundSvg from '../../assets/background.svg'
+import "./ItemListContainer.css"
 
 const ItemListContainer = () => {
 
@@ -26,12 +28,15 @@ const ItemListContainer = () => {
   }, [categoryId])
 
   return (
-    <div className='mt-5'>
-      {Object.keys(products).length === 0 ?
-        <Loader/>
-          : 
-        <ShowItems products={products}/>
-      }
+    <div style={{position: "relative"}}>
+      <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
+      <div className='positionList mt-5'>
+        {Object.keys(products).length === 0 ?
+          <Loader/>
+            : 
+          <ShowItems products={products}/>
+        }
+      </div>
     </div>
   )
 }

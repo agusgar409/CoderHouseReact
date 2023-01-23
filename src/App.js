@@ -10,7 +10,7 @@ import ItemDetailContainer from './container/itemDetailContainer/ItemDetailConta
 function App() {
   
   return (
-    <div>
+    <div >
       <BrowserRouter>
         <NavBar/>
         <Routes>

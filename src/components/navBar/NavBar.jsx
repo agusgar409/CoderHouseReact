@@ -7,7 +7,7 @@ import GetAllCategories from '../getAllCategories/GetAllCategories'
 const NavBar = () => {
 
     return (
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg fixed-top bg-light">
         <div className="container-fluid">
           <div className="collapse navbar-collapse justify-content-around" id="navbarNavDropdown">
             <ul className="navbar-nav">

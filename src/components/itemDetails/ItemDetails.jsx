@@ -7,7 +7,7 @@ const ItemDetails = ({item}) => {
         <div className='container center'>
             <div className='row ' >
                 <div className='col-lg-6 col-sm-12 align-self-center'>
-                <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
+                    <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
                 </div>
                 <div className='col-lg-6 col-sm-12'>
                 <div>
