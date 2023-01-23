@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CartWidget from '../cartWidget/CartWidget'
 import GetAllCategories from '../getAllCategories/GetAllCategories'
+import "./Navbar.css"
 
 
 const NavBar = () => {
 
     return (
-      <nav className="navbar navbar-expand-lg fixed-top bg-light">
+      <nav className="navbar navbar-expand-lg fixed-top bg-color-navbar">
         <div className="container-fluid">
           <div className="collapse navbar-collapse justify-content-around" id="navbarNavDropdown">
             <ul className="navbar-nav">

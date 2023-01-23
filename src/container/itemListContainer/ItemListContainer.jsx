@@ -30,7 +30,7 @@ const ItemListContainer = () => {
   return (
     <div style={{position: "relative"}}>
       <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
-      <div className='positionList mt-5'>
+      <div className='positionList pt-5'>
         {Object.keys(products).length === 0 ?
           <Loader/>
             : 
