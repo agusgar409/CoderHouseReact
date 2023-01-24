@@ -14,7 +14,7 @@ const ItemDetails = ({item}) => {
     }
 
     return (
-        <div className='container center backgroundColor'>
+        <div className='container centerItemDetails backgroundColor'>
             <div className='row ' >
                 <div className='col-lg-6 col-sm-12 align-self-center'>
                     <img style={{width: "18rem" }} src={item.image} alt="imageItem" />
@@ -35,7 +35,7 @@ const ItemDetails = ({item}) => {
                                     addToCart={addToCart}
                                 />
                             :
-                                <Link to={"/cart"} className='mt-5 p2 btn btn-primary'>
+                                <Link to={"/cart"} className='mt-5 p-2 btn btn-primary'>
                                     Vew Cart
                                 </Link>
                         }
