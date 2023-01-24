@@ -4,7 +4,7 @@ import ItemCount from '../itemCount/ItemCount'
 const ItemDetails = ({item}) => {
 
     const AddToCart = () => {
-        alert("alert show")
+        console.log("first")
     }
 
     return (
