@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from "react";
+import "../item/Item.css"
 
-const ItemCount = ({stock,initial,AddToCart}) => {
+const ItemCount = ({stock,initial,addToCart}) => {
 
 
     
@@ -16,14 +17,14 @@ const ItemCount = ({stock,initial,AddToCart}) => {
     }
 
     return (
-        <div className='pt-3 row justify-content-between'>
+        <div className='pt-5 row justify-content-between'>
             <div className='col-lg-6'>
                 <div className='row'>
                     <div className='col-lg-4 align-self-center'>
                         <button onClick={onDecrement} type="button" class="btn btn-outline-primary">-</button>
                     </div>
                     <div className='col-lg-2 align-self-center'>
-                        <p className='text-center'>{valueCounter}</p>
+                        <p className='text-center textColor'>{valueCounter}</p>
                     </div>
                     <div className='col-lg-4 align-self-center'>
                         <button onClick={onPlus} type="button" class="btn btn-outline-primary">+</button>
@@ -31,7 +32,7 @@ const ItemCount = ({stock,initial,AddToCart}) => {
                 </div>
             </div>
             <div className='col-lg-6 align-self-center'>
-                <button onClick={() => AddToCart} type="button" class="btn btn-outline-primary">Add to cart</button>
+                <button onClick={() => addToCart(valueCounter)} type="button" class="btn btn-outline-primary">Add to cart</button>
             </div>
         </div>
     )

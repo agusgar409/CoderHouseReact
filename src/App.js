@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 import ItemDetailContainer from './container/itemDetailContainer/ItemDetailContainer';
+import Cart from './components/cart/Cart';
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<ItemListContainer />}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
           <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+          <Route path='/cart' element={<Cart/>}/>
           <Route path='*' element={<h1>No Existe esta pagina</h1>}/>
         </Routes>
       </BrowserRouter>
