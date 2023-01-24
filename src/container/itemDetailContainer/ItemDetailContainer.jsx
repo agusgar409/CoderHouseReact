@@ -18,10 +18,6 @@ const ItemDetailContainer = () => {
       .then(json=>setItem(json))
   }, [itemId])
   
-  console.log(item)
-
-
-
   return (
     <>
       <div style={{position: "relative"}}>

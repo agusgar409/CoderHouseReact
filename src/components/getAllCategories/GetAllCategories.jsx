@@ -15,9 +15,8 @@ const GetAllCategories = () => {
   return (
     <>
       {category.map(elm => {
-        console.log(elm)
         return (
-          <li><Link to={"/category/"+elm} key={elm} class="dropdown-item" >{elm}</Link></li>
+          <li key={elm}><Link to={"/category/"+elm} key={elm} className="dropdown-item" >{elm}</Link></li>
         )
       })}
     </>

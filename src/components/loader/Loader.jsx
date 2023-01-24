@@ -3,9 +3,9 @@ import "./Loader.css"
 
 const Loader = () => {
   return (
-    <div class="d-flex justify-content-center">
-        <div class="" role="status">
-          <span class="loader"></span>
+    <div className="d-flex justify-content-center positionWeb">
+        <div className="" role="status">
+          <span className="loader"></span>
         </div>
     </div>
   )

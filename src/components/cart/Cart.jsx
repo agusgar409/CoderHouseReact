@@ -3,20 +3,31 @@ import React from 'react'
 import "../../container/itemDetailContainer/ItemDetailContainer.css"
 import backgroundSvg from '../../assets/background.svg'
 import "../../container/itemListContainer/ItemListContainer.css"
+import { useContext } from 'react'
+import { CartInfo } from '../../context/CartContext'
+import ShowCartInfo from './ShowCartInfo'
 
 
 const Cart = () => {
+
+  const {removeItem, clear, addProduct, products} = useContext(CartInfo)
+
+
   return (
     <>
       <div style={{position: "relative"}}>
         <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
         <div className='positionList paddingTop'>
-          {/* {Object.keys(item).length === 0 ?
-            <Loader/>
-              : 
-            <p>empty for now</p>
-          } */}
-          <p>emptyForNow</p>
+          {Object.keys(products).length === 0 ? 
+            null 
+            : 
+            <ShowCartInfo 
+              products={products}
+              removeItem={removeItem}
+              addProduct={addProduct}
+              clear={clear}
+            />
+          }
         </div>
         
       </div>
