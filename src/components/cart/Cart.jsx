@@ -10,8 +10,7 @@ import ShowCartInfo from './ShowCartInfo'
 
 const Cart = () => {
 
-  const {removeItem, clear, addProduct, products} = useContext(CartInfo)
-
+  const {products} = useContext(CartInfo)
 
   return (
     <>
@@ -21,12 +20,7 @@ const Cart = () => {
           {Object.keys(products).length === 0 ? 
             null 
             : 
-            <ShowCartInfo 
-              products={products}
-              removeItem={removeItem}
-              addProduct={addProduct}
-              clear={clear}
-            />
+            <ShowCartInfo/>
           }
         </div>
         

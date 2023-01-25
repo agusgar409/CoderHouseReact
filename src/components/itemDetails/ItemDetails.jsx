@@ -31,7 +31,7 @@ const ItemDetails = ({item}) => {
 		<div className='container centerItemDetails backgroundColor'>
 			<div className='row ' >
 				<div className='col-lg-6 col-sm-12 align-self-center'>
-					<img style={{width: "18rem" }} src={item.image} alt="imageItem" />
+					<img className='rounded img-thumbnail' src={item.image} alt="imageItem" />
 				</div>
 				<div className='col-lg-6 col-sm-12'>
 					<div>
@@ -39,7 +39,7 @@ const ItemDetails = ({item}) => {
 					</div>
 					<div className='pt-5 row justify-content-center'>
 						<div className='pt-1'>
-              <h2 className='textColor'>${item.price}</h2>
+              <h2 className='text-primary fs-1'>${item.price}</h2>
 						</div>
 						<aside>
               {counterForCart === 0 ? 

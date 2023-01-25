@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       <div style={{position: "relative"}}>
-        <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
+        <img className='rounded backgroundConfig' src={backgroundSvg} alt="background"></img>
         <div className='positionList paddingTop'>
           {Object.keys(item).length === 0 ?
             <Loader/>

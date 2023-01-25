@@ -10,6 +10,8 @@ const CartContext = ({children}) => {
   const addProduct = (product) =>{
     const productExist = isInCart(product.id)
 
+    debugger
+
     if(productExist){
       let productFound = products.find(elm => elm.id === product.id)
       productFound.quantity += product.quantity;
@@ -21,8 +23,25 @@ const CartContext = ({children}) => {
     console.log(products)
   }
 
+  const decrementProduct = (product) =>{
+    const productExist = isInCart(product.id)
+
+    debugger
+
+    if(productExist){
+      let productFound = products.find(elm => elm.id === product.id)
+      productFound.quantity -= product.quantity;
+      setProducts([...products,productFound])
+    }else{
+      setProducts([...products,product])
+    }
+
+    console.log(products)
+  }
+
   const removeItem = (itemId) => {
     if(isInCart(itemId)){
+      debugger
       const productsUpdate = products.filter(elm => elm.id !== itemId)
       setProducts(productsUpdate)
     }
@@ -47,7 +66,7 @@ const CartContext = ({children}) => {
   }
 
   return (
-    <CartInfo.Provider value={{products, addProduct, removeItem, countCart ,clear}}>
+    <CartInfo.Provider value={{products, addProduct, removeItem, countCart ,clear,decrementProduct}}>
         {children}
     </CartInfo.Provider>
   )
