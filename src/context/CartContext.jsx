@@ -12,7 +12,7 @@ const CartContext = ({children}) => {
     debugger
 
     if(isInCart(product.id)){
-      let productFound = products.find(elm => elm.id === product.id)
+      var productFound = products.find(elm => elm.id === product.id)
       productFound.quantity += product.quantity;
       setProducts([...products,productFound])
     }else{
@@ -40,7 +40,6 @@ const CartContext = ({children}) => {
 
   const removeItem = (itemId) => {
     if(isInCart(itemId)){
-      debugger
       const productsUpdate = products.filter(elm => elm.id !== itemId)
       setProducts(productsUpdate)
     }

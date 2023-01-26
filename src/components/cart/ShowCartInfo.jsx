@@ -15,19 +15,16 @@ const ShowCartInfo = () => {
       <>
         <div className='row'>
           <div className='col-lg-4'>
-            <i onClick={() => decrementProduct(product)} class="bi bi-arrow-down fs-3"></i>
+            <i onClick={() => decrementProduct(product)} className="bi bi-arrow-down fs-3"></i>
           </div>
           <div className='col-lg-4 fs-5'>
             {product.quantity}
           </div>
           <div className='col-lg-4'>
-            <i onClick={() => addProduct(product)} class="bi bi-arrow-up fs-3"></i>
+            <i onClick={() => addProduct(product)} className="bi bi-arrow-up fs-3"></i>
           </div>
-          
         </div>
-
       </>
-
     )
   }
 

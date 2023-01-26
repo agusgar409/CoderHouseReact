@@ -6,17 +6,35 @@ import "./ItemDetailContainer.css"
 import backgroundSvg from '../../assets/background.svg'
 import "../itemListContainer/ItemListContainer.css"
 
+import { db } from '../../firebase/FireBaseConfig';
+import { doc, getDoc } from "firebase/firestore"; 
+
 const ItemDetailContainer = () => {
 
-  const {itemId} = useParams()
+  const {id} = useParams()
+  debugger
   const [item, setItem] = useState([])
   
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/'+itemId)
-      .then(res=>res.json())
-      .then(json=>setItem(json))
-  }, [itemId])
+
+    const getProduct = async () =>{
+      
+      const docRef = doc(db, "products", id);
+      const docSnap = await getDoc(docRef)
+      console.log(docSnap)
+      console.log(docSnap.data())
+      
+      if(docSnap.exists()){
+        const product = {id: docSnap.id, ...docSnap.data() }
+        setItem(product);
+      }else{
+        console.log("no existe el item!")
+      }
+    }
+    getProduct();
+
+  }, [id])
   
   return (
     <>

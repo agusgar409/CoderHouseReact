@@ -3,7 +3,6 @@ import Item from '../item/Item'
 
 
 const ShowItems = ({products}) => {
-
   return (
     <div className='container pt-5'>
       <div className='row justify-content-around'>

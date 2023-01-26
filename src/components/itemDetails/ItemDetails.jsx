@@ -15,8 +15,8 @@ const ItemDetails = ({item}) => {
 	const {addProduct} = useContext(CartInfo)
 
 	const addToCart = (counter) => {
-    setCounterForCart(counter);
-    addProduct({...item,quantity: counter})
+		setCounterForCart(counter);
+		addProduct({...item,quantity: counter})
 	}
 
 	return (
