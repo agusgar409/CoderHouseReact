@@ -8,11 +8,10 @@ const CartContext = ({children}) => {
 	const [products, setProducts] = useState([])
 
   const addProduct = (product) =>{
-    const productExist = isInCart(product.id)
 
     debugger
 
-    if(productExist){
+    if(isInCart(product.id)){
       let productFound = products.find(elm => elm.id === product.id)
       productFound.quantity += product.quantity;
       setProducts([...products,productFound])
@@ -31,7 +30,7 @@ const CartContext = ({children}) => {
     if(productExist){
       let productFound = products.find(elm => elm.id === product.id)
       productFound.quantity -= product.quantity;
-      setProducts([...products,productFound])
+      setProducts([...products])
     }else{
       setProducts([...products,product])
     }
@@ -48,7 +47,7 @@ const CartContext = ({children}) => {
   }
 
   const isInCart = (idProduct) => {
-    return products.some(product => product.id === idProduct)
+    return products.some(elm => elm.id === idProduct)
   }
 
   const clear = () => {

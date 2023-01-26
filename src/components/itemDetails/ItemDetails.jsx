@@ -12,20 +12,12 @@ const ItemDetails = ({item}) => {
 
 	const [counterForCart, setCounterForCart] = useState(0)
 
-	const {addProduct, clear, removeItem} = useContext(CartInfo)
+	const {addProduct} = useContext(CartInfo)
 
 	const addToCart = (counter) => {
-			setCounterForCart(counter);
-			addProduct({...item,quantity: counter})
+    setCounterForCart(counter);
+    addProduct({...item,quantity: counter})
 	}
-
-  const clearCart = () => {
-    clear()
-  }
-
-  const deleteProduct = (itemId) =>{
-    removeItem(itemId)
-  }
 
 	return (
 		<div className='container centerItemDetails backgroundColor'>
@@ -49,18 +41,9 @@ const ItemDetails = ({item}) => {
                       addToCart={addToCart}
                   />
 								:
-								<>
-								
                   <Link to={"/cart"} className='mt-5 p-2 btn btn-primary'>
                       Vew Cart
                   </Link>
-                  <button onClick={clearCart} className='btn btn-primary'>
-                    empty cart (temporal)
-                  </button>
-                  <button onClick={()=>deleteProduct(item.id)} className='btn btn-primary'>
-                    delete element (temporal)
-                  </button>
-								</>
 						  }
 						</aside>
 					</div>

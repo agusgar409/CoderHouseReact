@@ -31,15 +31,6 @@ const ShowCartInfo = () => {
     )
   }
 
-  // console.log(products)
-
-  const deleteProduct = () => {
-    console.log(products)
-    removeItem(products.id)
-  }
-
-
-
   return (
     <div className='container centerItemDetails backgroundColor'>
       
@@ -59,9 +50,9 @@ const ShowCartInfo = () => {
             {products.map(prod => {
               return(
                 <tr id='overflowColum' className='text-center'>
-                  <th><img className='rounded  maxSizeCart' src={prod.image} alt="iimageProduct"/></th>
+                  <th><img className='rounded  maxSizeCart' src={prod.image} alt="imageProduct"/></th>
                   <th>{prod.title}</th>
-                  <th>{prod.price}</th>
+                  <th>{prod.price * prod.quantity}</th>
                   <th scope="col">{editQuantity(prod)}</th>
                   <th scope="col" >
                       <i onClick={()=>removeItem(prod.id)} class="bi bi-x fs-1"/>

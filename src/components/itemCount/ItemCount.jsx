@@ -30,7 +30,7 @@ const ItemCount = ({stock,initial,addToCart}) => {
 				</div>
 			</div>
 			<div className='col-lg-6 align-self-center'>
-				<button onClick={() => addToCart(valueCounter)} type="button" className="btn btn-primary">Add to cart</button>
+				<button onClick={()=>addToCart(valueCounter)} type="button" className="btn btn-primary">Add to cart</button>
 			</div>
 		</div>
 	)
