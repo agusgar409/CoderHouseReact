@@ -27,22 +27,19 @@ const ItemDetails = ({item}) => {
 					</div>
 					<div className='pt-5 row justify-content-center'>
 						<div className='pt-1'>
-              <h2 className='text-primary fs-1'>${item.price}</h2>
+             				 <h2 className='text-primary fs-1'>${item.price}</h2>
 						</div>
 						<aside>
-              
-                  <ItemCount 
-                      stock={20} 
-                      initial={1}
-                      addToCart={addToCart}
-                  />
-								{ products.find(elm => elm.id === item.id) && 
-                  <Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
-                    Vew Cart
-                  </Link>
-                }
-                  
-						  
+							<ItemCount 
+								stock={20} 
+								initial={1}
+								addToCart={addToCart}
+							/>
+							{ products.find(elm => elm.id === item.id) && 
+								<Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
+									Vew Cart
+								</Link>
+              }
 						</aside>
 					</div>
 				</div>

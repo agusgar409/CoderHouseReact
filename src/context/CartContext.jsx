@@ -9,6 +9,7 @@ const CartContext = ({children}) => {
 
 
   const addProducts = (product) => {
+    
     if(isInCart(product.id)){
       let productToSave =  products.find((elm) => elm.id === product.id);
       productToSave.quantity += product.quantity;
@@ -16,6 +17,18 @@ const CartContext = ({children}) => {
     }else{
       setProducts([...products,product])
     }
+  }
+
+
+
+  const editAmountProducts = (product,adds) =>{
+    let productToSave =  products.find((elm) => elm.id === product.id);
+    if(adds){
+      productToSave.quantity++;
+    }else if(product.quantity>1){
+      productToSave.quantity--;
+    }
+    setProducts([...products])
   }
 
   const removeItem = (itemId) => {
@@ -31,7 +44,6 @@ const CartContext = ({children}) => {
 
   const clear = () => {
     setProducts([])
-    console.log("clear")
   }
   
 
@@ -43,11 +55,17 @@ const CartContext = ({children}) => {
     return totalCountProducts;
   }
 
+
+  const total = () => {
+    let totalPrice;
+    for (const product of products) {
+      totalPrice = product.price * product.quantity;
+    }
+    return totalPrice;
+  }
+
   return (
-    <CartInfo.Provider value={{products
-      , addProducts
-      , removeItem, countCart ,clear
-      // ,decrementProduct
+    <CartInfo.Provider value={{products, addProducts, removeItem, countCart ,clear,editAmountProducts,total
     }}>
         {children}
     </CartInfo.Provider>

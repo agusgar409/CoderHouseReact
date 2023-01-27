@@ -45,12 +45,8 @@ const ItemDetailContainer = () => {
             <ItemDetails item={item}/>
           }
         </div>
-        
       </div>
-        
     </>
-    
-    
   )
 }
 

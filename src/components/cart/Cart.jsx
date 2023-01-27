@@ -6,11 +6,14 @@ import "../../container/itemListContainer/ItemListContainer.css"
 import { useContext } from 'react'
 import { CartInfo } from '../../context/CartContext'
 import ShowCartInfo from './ShowCartInfo'
+import EmptyCart from './EmptyCart'
+import OrderModal from './modals/OrderModal'
 
 
 const Cart = () => {
 
-  const {products} = useContext(CartInfo)
+  const {removeItem, clear, products,editAmountProducts,total} = useContext(CartInfo)
+  
 
   return (
     <>
@@ -18,14 +21,20 @@ const Cart = () => {
         <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
         <div className='positionList paddingTop'>
           {Object.keys(products).length === 0 ? 
-            null 
+            <EmptyCart ></EmptyCart>
             : 
-            <ShowCartInfo/>
+            <ShowCartInfo
+              removeItem={removeItem}
+              clear={clear}
+              editAmountProducts={editAmountProducts}
+              products={products}
+              total={total}
+            />
           }
         </div>
         
       </div>
-        
+      <OrderModal/>  
     </>
   )
 }
