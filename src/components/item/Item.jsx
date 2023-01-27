@@ -12,7 +12,7 @@ const Item = ({product}) => {
                 <h5 className="card-title textColor">{product.title}</h5>
             </div>
             <div className='fs-3'>
-                <p className="card-title text-primary" style={{"gridRow": 2}}><strong className=''>${product.price}</strong></p>
+                <p className="card-title text-primary" style={{"gridRow": 2}}><strong>$ {product.price}</strong></p>
             </div>
             <div className='row p-3' style={{"gridRow": 3}}>
                 <Link to={"/item/"+product.id} href="#somthing" className="btn btn-primary">Vew</Link>

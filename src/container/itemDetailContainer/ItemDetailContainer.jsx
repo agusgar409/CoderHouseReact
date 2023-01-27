@@ -12,7 +12,7 @@ import { doc, getDoc } from "firebase/firestore";
 const ItemDetailContainer = () => {
 
   const {id} = useParams()
-  debugger
+  
   const [item, setItem] = useState([])
   
 
@@ -22,8 +22,6 @@ const ItemDetailContainer = () => {
       
       const docRef = doc(db, "products", id);
       const docSnap = await getDoc(docRef)
-      console.log(docSnap)
-      console.log(docSnap.data())
       
       if(docSnap.exists()){
         const product = {id: docSnap.id, ...docSnap.data() }

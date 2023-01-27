@@ -15,7 +15,7 @@ const ItemCount = ({stock,initial,addToCart}) => {
 	}
 
 	return (
-		<div className='pt-5 row justify-content-between'>
+		<div className='pt-4 row justify-content-between'>
 			<div className='col-lg-6'>
 				<div className='row justify-content-around'>
 					<div className='col-lg-4 align-self-center'>

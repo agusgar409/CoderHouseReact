@@ -10,6 +10,14 @@ const ShowCartInfo = () => {
   
   const {removeItem, clear, addProduct, products,decrementProduct} = useContext(CartInfo)
 
+  const calcularTotal = () => {
+    let totalAmount = 0;
+    for(let product of products){
+      totalAmount += product.price * product.quantity 
+    }
+    return totalAmount;
+  }
+
   const editQuantity = (product) => {
     return (
       <>
@@ -49,7 +57,7 @@ const ShowCartInfo = () => {
                 <tr id='overflowColum' className='text-center'>
                   <th><img className='rounded  maxSizeCart' src={prod.image} alt="imageProduct"/></th>
                   <th>{prod.title}</th>
-                  <th>{prod.price * prod.quantity}</th>
+                  <th>$ {prod.price * prod.quantity}</th>
                   <th scope="col">{editQuantity(prod)}</th>
                   <th scope="col" >
                       <i onClick={()=>removeItem(prod.id)} class="bi bi-x fs-1"/>
@@ -59,6 +67,9 @@ const ShowCartInfo = () => {
             })}
           </tbody>
         </table>
+        <div className='text-end'>
+            Total : $ {calcularTotal}
+        </div>
         <div className='text-end'>
           <button onClick={()=>clear()} className='me-3 btn btn-primary'>
             Vaciar carrito

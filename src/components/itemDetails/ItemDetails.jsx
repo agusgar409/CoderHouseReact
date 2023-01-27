@@ -1,29 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from '../itemCount/ItemCount'
 import "../item/Item.css"
 import "./ItemDetails.css"
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartInfo } from '../../context/CartContext'
-import { useContext } from 'react'
 
 
 const ItemDetails = ({item}) => {
 
-	const [counterForCart, setCounterForCart] = useState(0)
-
-	const {addProduct} = useContext(CartInfo)
+	const {addProducts, products} = useContext(CartInfo)
 
 	const addToCart = (counter) => {
-		setCounterForCart(counter);
-		addProduct({...item,quantity: counter})
+		addProducts({...item,quantity: counter})
 	}
 
 	return (
 		<div className='container centerItemDetails backgroundColor'>
 			<div className='row ' >
-				<div className='col-lg-6 col-sm-12 align-self-center'>
-					<img className='rounded img-thumbnail' src={item.image} alt="imageItem" />
+				<div className='col-lg-6 col-sm-12 align-self-center text-center'>
+					<img className='rounded img-thumbnail max-size-detail' src={item.image} alt="imageItem" />
 				</div>
 				<div className='col-lg-6 col-sm-12'>
 					<div>
@@ -34,17 +30,19 @@ const ItemDetails = ({item}) => {
               <h2 className='text-primary fs-1'>${item.price}</h2>
 						</div>
 						<aside>
-              {counterForCart === 0 ? 
+              
                   <ItemCount 
                       stock={20} 
                       initial={1}
                       addToCart={addToCart}
                   />
-								:
-                  <Link to={"/cart"} className='mt-5 p-2 btn btn-primary'>
-                      Vew Cart
+								{ products.find(elm => elm.id === item.id) && 
+                  <Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
+                    Vew Cart
                   </Link>
-						  }
+                }
+                  
+						  
 						</aside>
 					</div>
 				</div>

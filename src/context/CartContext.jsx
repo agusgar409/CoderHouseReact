@@ -7,35 +7,15 @@ const CartContext = ({children}) => {
 
 	const [products, setProducts] = useState([])
 
-  const addProduct = (product) =>{
 
-    debugger
-
+  const addProducts = (product) => {
     if(isInCart(product.id)){
-      var productFound = products.find(elm => elm.id === product.id)
-      productFound.quantity += product.quantity;
-      setProducts([...products,productFound])
-    }else{
-      setProducts([...products,product])
-    }
-
-    console.log(products)
-  }
-
-  const decrementProduct = (product) =>{
-    const productExist = isInCart(product.id)
-
-    debugger
-
-    if(productExist){
-      let productFound = products.find(elm => elm.id === product.id)
-      productFound.quantity -= product.quantity;
+      let productToSave =  products.find((elm) => elm.id === product.id);
+      productToSave.quantity += product.quantity;
       setProducts([...products])
     }else{
       setProducts([...products,product])
     }
-
-    console.log(products)
   }
 
   const removeItem = (itemId) => {
@@ -64,7 +44,11 @@ const CartContext = ({children}) => {
   }
 
   return (
-    <CartInfo.Provider value={{products, addProduct, removeItem, countCart ,clear,decrementProduct}}>
+    <CartInfo.Provider value={{products
+      , addProducts
+      , removeItem, countCart ,clear
+      // ,decrementProduct
+    }}>
         {children}
     </CartInfo.Provider>
   )
