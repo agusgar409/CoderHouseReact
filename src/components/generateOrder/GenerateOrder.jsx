@@ -1,57 +1,37 @@
 import React from 'react'
 import "../../container/itemDetailContainer/ItemDetailContainer.css"
 import "../../container/itemListContainer/ItemListContainer.css"
-import { useForm } from "react-hook-form";
-import { collection,addDoc } from 'firebase/firestore';
-import GenerateOrderObject from '../../services/GenerateOrderObject';
-import { useContext } from 'react';
-// import CartContext from '../../context/CartContext';
-import { db } from '../../firebase/FireBaseConfig';
-import { CartInfo } from '../../context/CartContext';
 
-const GenerateOrder = () => {
-  
-  const {clear,total,products} = useContext(CartInfo)
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-
-  const confirmPurchase =async () => {
-    const order = GenerateOrderObject({
-      nombre:"Seba",
-      email:"agusting409@gmail.com",
-      telefono:"1122334455",
-      cart: products,
-      total:total(),
-    })
-
-    const docRef = await addDoc(collection(db,"orders",order));
-    clear();
-    console.log("documen wrritten with ID: ", docRef.id)
-    
-  };
+const GenerateOrder = ({register,errors}) => {
 
   return (
     <>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input {...register("Nombre"), { required: true, maxLength: 20 }} />
-          </div>
-          <div>
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input {...register("E-mail"), { required: true, maxLength: 20 }} />
-          </div>
-          <div>
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="number" {...register("Telefono"), { required: true, maxLength: 20 }} />
-          </div>
-          
-        <input type="submit" onClick={confirmPurchase()}/>
-        </form>
-        
+      <div>
+        <label className="form-label">Nombre</label>
+        <input type="text" className="form-control" 
+          {...register("nombre", { required: true, maxLength: 20 })} 
+        />
+        {errors.nombre?.type === "required" && <p className="text-danger">El campo nombre es requerido</p>}
+        {errors.nombre?.type === "maxLength" && <p className="text-danger">El campo nombre es muy largo</p>}
+      </div>
+      <div>
+        <label className="form-label">Email</label>
+        <input type="email" className="form-control" placeholder="name@example.com" 
+          {...register("email", { required: true, pattern: /\S+@\S+\.\S+/ })} 
+        />
+        {errors.email?.type === "required" && <p className="text-danger">El campo email es requerido</p>}
+        {errors.email?.type === "pattern" && <p className="text-danger">El campo email es incorrecto</p>}
+      </div>
+      <div>
+        <label className="form-label">Telefono</label>
+        <input type="text" className="form-control" placeholder="1122334455" 
+          {...register("telefono", { required: true, maxLength: 10 })}
+        />
+        {errors.telefono?.type === "required" && <p className="text-danger">El campo telefono es requerido</p>}
+        {errors.telefono?.type === "maxLength" && <p className="text-danger">El campo telefono es muy largo</p>}
+      </div>
     </>
   )
-  
 }
 
 export default GenerateOrder

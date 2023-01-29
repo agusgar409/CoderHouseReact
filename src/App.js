@@ -13,9 +13,9 @@ function App() {
   
   return (
     <div >
-      <head>
+      <div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"/>
-      </head>
+      </div>
       <CartContext>
         <BrowserRouter>
           <NavBar/>

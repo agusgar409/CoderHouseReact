@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 const GenerateOrderObject = (
     nombre = "",
@@ -8,9 +8,9 @@ const GenerateOrderObject = (
     total = 0) => {
   return {
     buyer: [
-      nombre = nombre,
-      telefono = telefono,
-      email = email
+      this.nombre = nombre,
+      this.telefono = telefono,
+      this.email = email
     ],
     products: cart,
     total: total,

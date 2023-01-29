@@ -15,7 +15,7 @@ const ProductsRow = ({product,removeItem,editAmountProducts}) => {
       />
       </th>
       <th scope="col" >
-        <i onClick={()=>removeItem(product.id)} class="bi bi-trash3 fs-3"></i>
+        <i onClick={()=>removeItem(product.id)} className="bi bi-trash3 fs-3"></i>
       </th>
     </tr>
   )
