@@ -8,6 +8,7 @@ import { CartInfo } from '../../context/CartContext'
 import ShowCartInfo from './ShowCartInfo'
 import EmptyCart from './EmptyCart'
 import OrderModal from './modals/OrderModal'
+import ConfirmPurchaseModal from './modals/ConfirmPurchaseModal'
 
 
 const Cart = () => {
@@ -35,6 +36,7 @@ const Cart = () => {
         
       </div>
       <OrderModal/>  
+      <ConfirmPurchaseModal/>
     </>
   )
 }

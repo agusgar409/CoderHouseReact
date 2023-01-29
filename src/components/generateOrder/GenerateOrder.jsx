@@ -2,7 +2,16 @@ import React from 'react'
 import "../../container/itemDetailContainer/ItemDetailContainer.css"
 import "../../container/itemListContainer/ItemListContainer.css"
 
-const GenerateOrder = ({register,errors}) => {
+const GenerateOrder = ({register,errors,setShowGenerateOrder}) => {
+
+  const checkFields = () =>{
+    debugger
+    if((errors.nombre?.type === "required") && (errors.email?.type === "required") && (errors.telefono?.type === "required")){
+      setShowGenerateOrder(true)
+    }else{
+      setShowGenerateOrder(false)
+    }
+  }
 
   return (
     <>
@@ -30,6 +39,7 @@ const GenerateOrder = ({register,errors}) => {
         {errors.telefono?.type === "required" && <p className="text-danger">El campo telefono es requerido</p>}
         {errors.telefono?.type === "maxLength" && <p className="text-danger">El campo telefono es muy largo</p>}
       </div>
+      {checkFields}
     </>
   )
 }

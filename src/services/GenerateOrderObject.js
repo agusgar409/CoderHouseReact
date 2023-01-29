@@ -1,17 +1,18 @@
 // import React from 'react'
 
-const GenerateOrderObject = (
+const GenerateOrderObject = ({
     nombre = "",
     email = "",
     telefono = "",
     cart = [],
-    total = 0) => {
+    total = 0
+}) => {
   return {
-    buyer: [
-      this.nombre = nombre,
-      this.telefono = telefono,
-      this.email = email
-    ],
+    buyer: {
+      nombre: nombre,
+      telefono: telefono,
+      email: email
+    },
     products: cart,
     total: total,
     createTime: new Date().toLocaleString()

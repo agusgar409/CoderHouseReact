@@ -30,11 +30,15 @@ const ItemDetails = ({item}) => {
              				 <h2 className='text-primary fs-1'>${item.price}</h2>
 						</div>
 						<aside>
-							<ItemCount 
-								stock={20} 
-								initial={1}
-								addToCart={addToCart}
-							/>
+							{item.stock === 0 ? 
+								<p className="pt-4 fs-3 text-danger">No hay stock</p>
+								: 
+								<ItemCount 
+									stock={item.stock} 
+									initial={1}
+									addToCart={addToCart}
+								/>}
+							
 							{ products.find(elm => elm.id === item.id) && 
 								<Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
 									Vew Cart

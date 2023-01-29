@@ -44,7 +44,7 @@ const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total}) => {
           <button onClick={()=>clear()} className='me-3 btn btn-primary'>
             Vaciar carrito
           </button>
-          <button className='me-2 btn btn-primary' data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button className='me-2 btn btn-primary' data-bs-toggle="modal" data-bs-target="#orderModal">
             Terminar mi compra
           </button>
         </div>
