@@ -13,6 +13,8 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 
+import { Modal } from 'bootstrap'
+
 const OrderModal = () => {
 
   const {clear,total,products} = useContext(CartInfo);
@@ -21,12 +23,12 @@ const OrderModal = () => {
   const [showLoader, setShowLoader] = useState(false);
   const [orderCompleted, setOrderCompleted] = useState(false);
 
+  
+
   const confirmPurchase = async (data) => {
     try {
       setShowLoader(true)
 
-      debugger
-      console.log(data);
       const order = GenerateOrderObject({
         nombre: data.nombre,
         email: data.email,
@@ -47,22 +49,23 @@ const OrderModal = () => {
           stock: productCart.stock - productCart.quantity
         });
       }
+      // const myModal = new Modal('#orderModal', {
+      //   keyboard: false
+      // })
+      // debugger
+      // myModal.hide()
 
-      Swal.fire({
-        icon: 'success',
-        title: 'Orden creada con ID :' + docRef.id,
-        showConfirmButton: true,
-      })
+      // Swal.fire({
+      //   icon: 'success',
+      //   title: 'Orden creada con ID :' + docRef.id,
+      //   showConfirmButton: true,
+      // })
 
       setShowLoader(false)
-      setOrderCompleted(true)
-      
     } catch (error) {
       console.log(error)
     }
   };
-
-  
 
   return (
     <>
@@ -83,7 +86,7 @@ const OrderModal = () => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" className="btn btn-primary">
+                <button id='submitModal' type="submit" className="btn btn-primary" >
                   {showLoader ? 
                     <div class="spinner-border text-light" role="status">
                       <span class="visually-hidden">Loading...</span>
@@ -97,6 +100,11 @@ const OrderModal = () => {
           </div>
         </div>
       </div>
+      <script>
+        $("#submitModal").click(function(){
+          $("#orderModal").modal("hide")
+        });
+      </script>
     </>
     
   )
