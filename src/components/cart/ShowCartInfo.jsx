@@ -6,10 +6,13 @@ import "./Cart.css"
 // import OrderModal from './modals/OrderModal'
 import ProductsRow from './ProductsRow'
 
-const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total}) => {
+const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total,setShowModal}) => {
   
   // const [fillOrder, setfillOrder] = useState(false)
 
+  const handleShow = () => {
+    setShowModal(true)
+  }
 
   return (
     <div className='container centerItemDetails backgroundColor'>
@@ -44,7 +47,7 @@ const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total}) => {
           <button onClick={()=>clear()} className='me-3 btn btn-primary'>
             Vaciar carrito
           </button>
-          <button className='me-2 btn btn-primary' data-bs-toggle="modal" data-bs-target="#orderModal">
+          <button className='me-2 btn btn-primary' onClick={handleShow}>
             Terminar mi compra
           </button>
         </div>

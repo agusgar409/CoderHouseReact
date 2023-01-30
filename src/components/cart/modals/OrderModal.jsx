@@ -12,20 +12,19 @@ import { useForm } from "react-hook-form"
 import { useContext } from 'react';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import { Modal } from 'react-bootstrap';
 
-import { Modal } from 'bootstrap'
-
-const OrderModal = () => {
+const OrderModal = ({showModal,setShowModal}) => {
 
   const {clear,total,products} = useContext(CartInfo);
   const { handleSubmit, formState: {errors} , register } = useForm();
-  const [showGenerateOrder, setShowGenerateOrder] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
-  const [orderCompleted, setOrderCompleted] = useState(false);
+  
 
   
 
   const confirmPurchase = async (data) => {
+    
     try {
       setShowLoader(true)
 
@@ -49,62 +48,57 @@ const OrderModal = () => {
           stock: productCart.stock - productCart.quantity
         });
       }
-      // const myModal = new Modal('#orderModal', {
-      //   keyboard: false
-      // })
-      // debugger
-      // myModal.hide()
 
-      // Swal.fire({
-      //   icon: 'success',
-      //   title: 'Orden creada con ID :' + docRef.id,
-      //   showConfirmButton: true,
-      // })
-
+      Swal.fire({
+        icon: 'success',
+        title: 'Orden creada con ID :' + docRef.id,
+        showConfirmButton: true,
+      })
+      
+      handleClose()
       setShowLoader(false)
+
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        icon: "error",
+        title: 'Fallo en crear orden de compra',
+        showConfirmButton: true,
+      })
     }
   };
 
+  const handleClose = () => {
+    setShowModal(false)
+  }
+
   return (
     <>
-      <div className="modal fade changePosition" id="orderModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <form onSubmit={handleSubmit(confirmPurchase)}>
-              <div className="modal-header">
-                <h5 className="modal-title">Ingresar datos para orden de compra</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                <GenerateOrder 
-                  register={register} 
-                  errors={errors}
-                  setShowGenerateOrder={setShowGenerateOrder}
-                />
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button id='submitModal' type="submit" className="btn btn-primary" >
-                  {showLoader ? 
-                    <div class="spinner-border text-light" role="status">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                    : 
-                    "Guardar cambios"
-                  }
-                </button> 
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <script>
-        $("#submitModal").click(function(){
-          $("#orderModal").modal("hide")
-        });
-      </script>
+       <Modal show={showModal} onHide={handleClose} size="m" aria-labelledby="contained-modal-title-vcenter"
+      centered>
+        <form onSubmit={handleSubmit(confirmPurchase)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ingresar datos para orden de compra</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <GenerateOrder 
+              register={register} 
+              errors={errors}
+            />
+          </Modal.Body>
+          <Modal.Footer>
+            <button type="button" className="btn btn-secondary" onClick={handleClose}>Cerrar</button>
+            <button type="submit" className="btn btn-primary">
+              {showLoader ? 
+                <div class="spinner-border text-light" role="status" data-bs-dismiss="modal">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                : 
+                "Guardar cambios"
+              }
+            </button> 
+          </Modal.Footer>
+        </form>
+      </Modal>
     </>
     
   )

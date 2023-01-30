@@ -8,12 +8,14 @@ import { CartInfo } from '../../context/CartContext'
 import ShowCartInfo from './ShowCartInfo'
 import EmptyCart from './EmptyCart'
 import OrderModal from './modals/OrderModal'
+import { useState } from 'react'
 
 const Cart = () => {
 
   const {removeItem, clear, products,editAmountProducts,total} = useContext(CartInfo)
   
-
+  const [show, setShow] = useState(false);
+  
   return (
     <>
       <div style={{position: "relative"}}>
@@ -28,12 +30,16 @@ const Cart = () => {
               editAmountProducts={editAmountProducts}
               products={products}
               total={total}
+              setShowModal={setShow}
             />
           }
         </div>
         
       </div>
-      <OrderModal/>  
+      <OrderModal
+        showModal={show}
+        setShowModal={setShow}
+      />  
     </>
   )
 }

@@ -19,13 +19,11 @@ const CartContext = ({children}) => {
     }
   }
 
-
-
   const editAmountProducts = (product,adds) =>{
     let productToSave =  products.find((elm) => elm.id === product.id);
-    if(adds){
+    if(adds && product.quantity < product.stock){
       productToSave.quantity++;
-    }else if(product.quantity>1){
+    }else if(!adds && product.quantity>1){
       productToSave.quantity--;
     }
     setProducts([...products])

@@ -1,3 +1,3 @@
-$('#closemodal').click(function() {
-    $('#modalwindow').modal('hide');
+$('#submitModal').trigger(function() {
+    $('#orderModal').modal('hide');
 });
