@@ -36,7 +36,15 @@ Para que el proyecto se logre realizar de una manera esperada utilicé las sigui
 
 ⚡ React-router-dom: routing de la web
 
-⚡ React-bootstrap: navbar 
+⚡ Bootstrap: styles y grid de componentes
+
+⚡ Sweetalert2: mensaje de confirmacion y error
+
+⚡ React-hook-form: creacion formularios
+
+⚡ React-bootstrap: 
+
+⚡ Firebase: guardado datos en base de datos noSql
 
 # *GIF*:
 

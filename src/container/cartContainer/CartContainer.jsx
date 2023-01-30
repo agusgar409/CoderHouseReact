@@ -1,13 +1,12 @@
 import React from 'react'
-// import Loader from '../loader/Loader'
 import "../../container/itemDetailContainer/ItemDetailContainer.css"
 import backgroundSvg from '../../assets/background.svg'
 import "../../container/itemListContainer/ItemListContainer.css"
 import { useContext } from 'react'
 import { CartInfo } from '../../context/CartContext'
-import ShowCartInfo from './ShowCartInfo'
-import EmptyCart from './EmptyCart'
-import OrderModal from './modals/OrderModal'
+import Brief from '../../components/cart/Brief'
+import EmptyCart from '../../components/cart/EmptyCart'
+import Checkout from '../../components/cart/modals/Checkout'
 import { useState } from 'react'
 
 const Cart = () => {
@@ -24,7 +23,7 @@ const Cart = () => {
           {Object.keys(products).length === 0 ? 
             <EmptyCart ></EmptyCart>
             : 
-            <ShowCartInfo
+            <Brief
               removeItem={removeItem}
               clear={clear}
               editAmountProducts={editAmountProducts}
@@ -36,7 +35,7 @@ const Cart = () => {
         </div>
         
       </div>
-      <OrderModal
+      <Checkout
         showModal={show}
         setShowModal={setShow}
       />  

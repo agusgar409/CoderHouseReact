@@ -6,7 +6,7 @@ import "./Cart.css"
 // import OrderModal from './modals/OrderModal'
 import ProductsRow from './ProductsRow'
 
-const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total,setShowModal}) => {
+const Brief = ({removeItem,clear,editAmountProducts,products,total,setShowModal}) => {
   
   // const [fillOrder, setfillOrder] = useState(false)
 
@@ -56,4 +56,4 @@ const ShowCartInfo = ({removeItem,clear,editAmountProducts,products,total,setSho
   )
 }
 
-export default ShowCartInfo
+export default Brief

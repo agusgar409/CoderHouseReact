@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Dropdown, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-// import CartWidget from '../cartWidget/CartWidget'
+import CartWidget from '../cartWidget/CartWidget'
 import GetAllCategories from '../getAllCategories/GetAllCategories'
 import "./Navbar.css"
 import { Navbar,Nav,Container,NavDropdown } from 'react-bootstrap'
@@ -10,7 +10,7 @@ import { Navbar,Nav,Container,NavDropdown } from 'react-bootstrap'
 const NavBar = () => {
 
     return (
-      <Navbar className='bg-color-navbar' expand="lg">
+      <Navbar className='bg-color-navbar' expand="lg" fixed="top">
         <Container>
           <Navbar.Brand href="#home">
             <Link to={"/"} className="nav-link active" aria-current="page" href="#home">NetShop</Link>
@@ -24,36 +24,11 @@ const NavBar = () => {
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
+          <div>
+            <Link to={"/cart"} class="text-decoration-none"><CartWidget/></Link>
+ 		      </div>
         </Container>
       </Navbar>
-      // <nav className="navbar navbar-expand-lg fixed-top ">
-      //   <div className="container-fluid">
-      //     <div className="collapse navbar-collapse justify-content-around">
-      //       <ul className="navbar-nav">
-      //         <li className="nav-item">
-      //           
-      //         </li>
-      //         <li className="nav-item">
-      //           
-      //         </li>
-      //         <li className="nav-item">
-      //           <Dropdown>
-      //             <Dropdown.Toggle id="dropdown-basic">
-      //               Categorias
-      //             </Dropdown.Toggle>
-
-      //             
-
-                  
-      //           </Dropdown>
-      //         </li>
-			// 			</ul>
-			// 			<div>
-      //         <Link to={"/cart"}><CartWidget/></Link>
-			// 			</div>
-			// 		</div>
-			// 	</div>
-			// </nav>
     )
 }
 

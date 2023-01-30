@@ -9,7 +9,6 @@ const EmptyCart = () => {
         <div class="d-grid gap-2 col-6 mx-auto">
           <Link to={"/"} type="button" className="btn btn-primary">Elegir productos</Link>
         </div>
-        
       </div>
     </div>
   )

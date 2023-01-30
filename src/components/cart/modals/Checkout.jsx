@@ -14,14 +14,11 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import { Modal } from 'react-bootstrap';
 
-const OrderModal = ({showModal,setShowModal}) => {
+const Checkout = ({showModal,setShowModal}) => {
 
   const {clear,total,products} = useContext(CartInfo);
   const { handleSubmit, formState: {errors} , register } = useForm();
   const [showLoader, setShowLoader] = useState(false);
-  
-
-  
 
   const confirmPurchase = async (data) => {
     
@@ -104,4 +101,4 @@ const OrderModal = ({showModal,setShowModal}) => {
   )
 }
 
-export default OrderModal
+export default Checkout
