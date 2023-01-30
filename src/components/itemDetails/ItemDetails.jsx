@@ -26,25 +26,28 @@ const ItemDetails = ({item}) => {
 						<h1 className='textColor'>{item.title}</h1>
 					</div>
 					<div className='pt-5 row justify-content-center'>
-						<div className='pt-1'>
-             				 <h2 className='text-primary fs-1'>${item.price}</h2>
-						</div>
-						<aside>
-							{item.stock === 0 ? 
-								<p className="pt-4 fs-3 text-danger">No hay stock</p>
-								: 
-								<ItemCount 
-									stock={item.stock} 
-									initial={1}
-									addToCart={addToCart}
-								/>}
-							
-							{ products.find(elm => elm.id === item.id) && 
-								<Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
-									Vew Cart
-								</Link>
-              }
-						</aside>
+						{item.stock === 0 ? 
+							<p className="pt-4 fs-3 text-danger">No hay stock</p>
+							: 
+							<>
+								<div className='pt-1'>
+									<h2 className='text-primary fs-1'>${item.price}</h2>
+								</div>
+								<aside>
+									<ItemCount 
+										stock={item.stock} 
+										initial={1}
+										addToCart={addToCart}
+									/>
+						
+									{ products.find(elm => elm.id === item.id) && 
+										<Link to={"/cart"} className='mt-4 p-2 btn btn-primary'>
+											Vew Cart
+										</Link>
+									}
+								</aside>
+							</>
+						}
 					</div>
 				</div>
 			</div>
