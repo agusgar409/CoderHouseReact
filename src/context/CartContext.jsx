@@ -129,9 +129,9 @@ const CartContext = ({children}) => {
 
 
   const total = () => {
-    let totalPrice;
+    let totalPrice = 0;
     for (const product of products) {
-      totalPrice = product.price * product.quantity;
+      totalPrice += product.price * product.quantity;
     }
     return totalPrice;
   }

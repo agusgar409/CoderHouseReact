@@ -52,4 +52,4 @@ Para que el proyecto se logre realizar de una manera esperada utilicé las sigui
 
 # *GIF*:
 
-![PreEntrega2-Garcia](https://user-images.githubusercontent.com/62307436/211097156-19008198-5e78-44be-9e74-2813c5caf97b.gif)
+![finalProject](https://user-images.githubusercontent.com/62307436/215853602-d5d6f8f2-9c87-415c-b565-c1c36260ebfa.gif)

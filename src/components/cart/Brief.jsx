@@ -36,8 +36,8 @@ const Brief = ({removeItem,clear,editAmountProducts,products,total,setShowModal}
             })}
           </tbody>
         </table>
-        <div className='text-end'>
-            Total : $ {total()}
+        <div className='text-end m-3 fs-2'>
+            <p className='text-info-emphasis'>Total : $ {total()}</p>
         </div>
         <div className='text-end'>
           <button onClick={()=>clear()} className='me-3 btn btn-primary'>
