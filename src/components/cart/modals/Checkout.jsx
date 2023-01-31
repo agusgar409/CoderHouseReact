@@ -14,14 +14,22 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import { Modal } from 'react-bootstrap';
 
+import {yupResolver} from "@hookform/resolvers/yup"
+import { schema } from '../../generateOrder/GenerateOrder';
+
 const Checkout = ({showModal,setShowModal}) => {
 
   const {clear,total,products} = useContext(CartInfo);
-  const { handleSubmit, formState: {errors} , register } = useForm();
+
+  const { handleSubmit, formState: {errors} , register} = useForm({
+    resolver: yupResolver(schema)
+  });
+
   const [showLoader, setShowLoader] = useState(false);
 
+
+
   const confirmPurchase = async (data) => {
-    
     try {
       setShowLoader(true)
 
@@ -77,9 +85,10 @@ const Checkout = ({showModal,setShowModal}) => {
             <Modal.Title>Ingresar datos para orden de compra</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <GenerateOrder 
-              register={register} 
+            <GenerateOrder
               errors={errors}
+              register={register}
+              schema={schema}
             />
           </Modal.Body>
           <Modal.Footer>

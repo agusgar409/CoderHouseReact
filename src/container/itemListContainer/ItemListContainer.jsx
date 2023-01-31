@@ -19,7 +19,9 @@ const ItemListContainer = () => {
         {loading ?
           <Loader/>
             : 
-          <ShowItems products={products}/>
+          <>
+            <ShowItems products={products}/>
+          </>
         }
       </div>
     </div>

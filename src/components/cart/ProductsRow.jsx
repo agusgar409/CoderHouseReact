@@ -1,4 +1,5 @@
 import React from 'react'
+import { ToastContainer } from 'react-toastify'
 import EditQuantity from './EditQuantity'
 
 const ProductsRow = ({product,removeItem,editAmountProducts}) => {
@@ -16,6 +17,7 @@ const ProductsRow = ({product,removeItem,editAmountProducts}) => {
       </th>
       <th scope="col" >
         <i onClick={()=>removeItem(product.id)} className="bi bi-trash3 fs-3"></i>
+        <ToastContainer className="mt-5"/>
       </th>
     </tr>
   )

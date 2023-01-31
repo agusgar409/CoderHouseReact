@@ -8,6 +8,8 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 import ItemDetailContainer from './container/itemDetailContainer/ItemDetailContainer';
 import Cart from './container/cartContainer/CartContainer';
 import CartContext from './context/CartContext';
+import { ToastContainer } from 'react-toastify'
+
 
 function App() {
   
@@ -28,6 +30,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartContext>
+      <ToastContainer className="mt-5"/>
     </div>
   );
 }

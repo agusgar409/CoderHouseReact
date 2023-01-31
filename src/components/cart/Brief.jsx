@@ -1,15 +1,11 @@
 import React from 'react'
-// import GenerateOrder from '../generateOrder/GenerateOrder'
 import "../item/Item.css"
 import "../itemDetails/ItemDetails.css"
 import "./Cart.css"
-// import OrderModal from './modals/OrderModal'
 import ProductsRow from './ProductsRow'
 
 const Brief = ({removeItem,clear,editAmountProducts,products,total,setShowModal}) => {
   
-  // const [fillOrder, setfillOrder] = useState(false)
-
   const handleShow = () => {
     setShowModal(true)
   }

@@ -1,5 +1,7 @@
 import React, { createContext } from 'react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartInfo = createContext()
 
@@ -9,14 +11,38 @@ const CartContext = ({children}) => {
 
 
   const addProducts = (product) => {
-    
-    if(isInCart(product.id)){
-      let productToSave =  products.find((elm) => elm.id === product.id);
-      productToSave.quantity += product.quantity;
-      setProducts([...products])
-    }else{
-      setProducts([...products,product])
+    try {
+      if(isInCart(product.id)){
+        let productToSave =  products.find((elm) => elm.id === product.id);
+        productToSave.quantity += product.quantity;
+        setProducts([...products])
+      }else{
+        setProducts([...products,product])
+      }
+      toast.success('Productos agregados al carrito', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error(error.message(), {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
+    
+    
   }
 
   const editAmountProducts = (product,adds) =>{
@@ -30,10 +56,34 @@ const CartContext = ({children}) => {
   }
 
   const removeItem = (itemId) => {
-    if(isInCart(itemId)){
-      const productsUpdate = products.filter(elm => elm.id !== itemId)
-      setProducts(productsUpdate)
+    try {
+      if(isInCart(itemId)){
+        const productsUpdate = products.filter(elm => elm.id !== itemId)
+        setProducts(productsUpdate)
+      }
+      toast.warn('Producto eliminado correctamente', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    } catch (error) {
+      toast.error(error.message(), {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
+    
   }
 
   const isInCart = (idProduct) => {
@@ -41,7 +91,31 @@ const CartContext = ({children}) => {
   }
 
   const clear = () => {
-    setProducts([])
+    try {
+      setProducts([])
+      toast.warn('Productos eliminados', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    } catch (error) {
+      toast.error(error.message(), {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    }
+    
   }
   
 
