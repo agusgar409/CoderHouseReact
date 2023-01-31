@@ -19,7 +19,7 @@ const Item = ({product}) => {
                 }
             </div>
             <div className='row p-3' style={{"gridRow": 3}}>
-                <Link to={"/item/"+product.id} href="#somthing" className="btn btn-primary">Vew</Link>
+                <Link to={"/item/"+product.id} className="btn btn-primary">Vew</Link>
             </div>
         </div>
     )

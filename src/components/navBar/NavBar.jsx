@@ -12,13 +12,13 @@ const NavBar = () => {
     return (
       <Navbar className='bg-color-navbar' expand="lg" fixed="top">
         <Container>
-          <Navbar.Brand href="#home">
-            <Link to={"/"} className="nav-link active" aria-current="page" href="#home">NetShop</Link>
+          <Navbar.Brand>
+            <Link to={"/"} className="nav-link active" aria-current="page">NetShop</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#products">Products</Nav.Link>
+              <Nav.Link>Products</Nav.Link>
               <NavDropdown title="Categorias" id="basic-nav-dropdown">
                 <GetAllCategories/>
               </NavDropdown>
