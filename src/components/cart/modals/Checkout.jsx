@@ -35,6 +35,7 @@ const Checkout = ({showModal,setShowModal}) => {
 
       const order = GenerateOrderObject({
         nombre: data.nombre,
+        apellido: data.apellido,
         email: data.email,
         telefono: data.telefono,
         cart: products,
