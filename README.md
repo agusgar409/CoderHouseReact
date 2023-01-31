@@ -32,12 +32,24 @@ npm start
 
 Para que el proyecto se logre realizar de una manera esperada utilicé las siguientes herramientas:
 
-⚡ React-icons
+⚡ React-router-dom: enrutamiento de la web
 
-⚡ React-router-dom: routing de la web
+⚡ Bootstrap: estilos y grid de componentes
 
-⚡ React-bootstrap: navbar 
+⚡ Bootstrap-icons: iconos para la web
+
+⚡ Sweetalert2: mensaje de confirmación y error
+
+⚡ React-hook-form: creación de formularios
+
+⚡ React-bootstrap: implementación de Navbar y Modals
+
+⚡ Firebase: datos guardados en base de datos noSql
+
+⚡ Yup: comprobación y error de campos de formulario
+
+⚡ Toastify: para mostrar al usuario que se confirma la acción
 
 # *GIF*:
 
-![PreEntrega2-Garcia](https://user-images.githubusercontent.com/62307436/211097156-19008198-5e78-44be-9e74-2813c5caf97b.gif)
+![finalProject](https://user-images.githubusercontent.com/62307436/215853602-d5d6f8f2-9c87-415c-b565-c1c36260ebfa.gif)

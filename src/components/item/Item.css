@@ -1,0 +1,15 @@
+.max-size-img{
+    max-height:250px;
+    max-width:300px;
+    height:100%;
+    width:100%;
+    text-align: center;
+}
+
+.card{
+    background-color: #cdf2d6;
+}
+
+.textColor{
+    color: #494c48;
+}

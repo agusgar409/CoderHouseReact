@@ -1,0 +1,13 @@
+.backgroundConfig{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    background-size: cover;
+    position:fixed
+}
+
+.positionList{
+    position:inherit;
+    z-index:2
+}

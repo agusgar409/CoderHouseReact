@@ -1,37 +1,34 @@
 import React from 'react'
+// import { Dropdown, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import CartWidget from '../cartWidget/CartWidget'
 import GetAllCategories from '../getAllCategories/GetAllCategories'
+import "./Navbar.css"
+import { Navbar,Nav,Container,NavDropdown } from 'react-bootstrap'
 
 
 const NavBar = () => {
 
     return (
-      <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse justify-content-around" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link active" aria-current="page" href="#home">NetShop</Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#products">Products</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href='#category' type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categories
-                </a>
-                <ul className="dropdown-menu">
-                  <GetAllCategories/>
-                </ul>
-              </li>
-						</ul>
-						<div>
-							<CartWidget/>
-						</div>
-					</div>
-				</div>
-			</nav>
+      <Navbar className='bg-color-navbar' expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand>
+            <Link to={"/"} className="nav-link active" aria-current="page">NetShop</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link>Products</Nav.Link>
+              <NavDropdown title="Categorias" id="basic-nav-dropdown">
+                <GetAllCategories/>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+          <div>
+            <Link to={"/cart"} class="text-decoration-none"><CartWidget/></Link>
+ 		      </div>
+        </Container>
+      </Navbar>
     )
 }
 

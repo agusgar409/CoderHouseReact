@@ -1,7 +1,12 @@
 import React from 'react'
+import { useContext } from 'react'
+import { CartInfo } from "../../context/CartContext"
 import "./CartWidget.css"
 
 const CartWidget = () => {
+
+  const {countCart} = useContext(CartInfo)
+
   return (
     <div className='row'>
       <div className='col-lg-6'>
@@ -10,8 +15,7 @@ const CartWidget = () => {
         </svg>
       </div>
       <div className='col-lg-4 circleNotification mt-1'>
-        <span className='centerNumberCart text-white'>3</span>
-        
+        <span className='centerNumberCart text-white'>{countCart()}</span>
       </div>
     </div>
     

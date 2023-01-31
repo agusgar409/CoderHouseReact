@@ -1,33 +1,29 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useParams } from 'react-router'
+import Loader from '../../components/loader/Loader';
 import ShowItems from '../../components/showItems/ShowItems'
+import backgroundSvg from '../../assets/background.svg'
+import "./ItemListContainer.css"
+import useFirebaseGetProducts from '../../hooks/useFirebaseGetProducts';
 
 const ItemListContainer = () => {
 
-  const [products, setProducts] = useState([]);
-
   const {categoryId} = useParams();
-  console.log(categoryId)
-  
-  useEffect(() => {
-    
-    fetch('https://fakestoreapi.com/products')
-      .then(res=>res.json())
-      .then(productJson=> {
-        if(categoryId){
-          const productsFilterByCategory = productJson.filter(product => product.category === categoryId);  
-          setProducts(productsFilterByCategory)
-        } else {
-          setProducts(productJson)
-        }
-        
-      })
-  }, [categoryId])
+
+  const [products,loading] = useFirebaseGetProducts(categoryId)
 
   return (
-    <div className='mt-5'>
-      <title><strong>Our Products</strong></title>
-      <ShowItems products={products}/>
+    <div style={{position: "relative"}}>
+      <img className='backgroundConfig' src={backgroundSvg} alt="background"></img>
+      <div className='positionList pt-5'>
+        {loading ?
+          <Loader/>
+            : 
+          <>
+            <ShowItems products={products}/>
+          </>
+        }
+      </div>
     </div>
   )
 }

@@ -1,0 +1,17 @@
+.backgroundColor{
+    background-color: #cdf2d6;
+}
+
+.centerItemDetails{
+    border: 5px solid #cdf2d6;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.max-size-detail{
+    max-width: 400px;
+    max-height: 400px;
+}
